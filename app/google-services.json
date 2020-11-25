@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "143293031204",
+    "firebase_url": "https://leafmate-13aba.firebaseio.com",
+    "project_id": "leafmate-13aba",
+    "storage_bucket": "leafmate-13aba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143293031204:android:9ad5627984ba5d3f1d89b1",
+        "android_client_info": {
+          "package_name": "com.sokah.leafmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143293031204-bd7qf17h3esobcqhm46rrj2e98p9mfst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjAFvuAv3olaymCq_zi47Nb6tCsv3TqSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143293031204-bd7qf17h3esobcqhm46rrj2e98p9mfst.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
