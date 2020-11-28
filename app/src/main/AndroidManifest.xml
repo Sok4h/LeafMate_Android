@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyPlantActivity"></activity>
+        <activity android:name=".PlantLibraryActivity"></activity>
+        <activity android:name=".MyPlantActivity" />
         <activity android:name=".AddNewPlantActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
