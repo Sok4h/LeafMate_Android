@@ -9,20 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-        <activity android:name=".LibraryActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".LibraryActivity" />
         <activity android:name=".HomeActivity" />
-
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-
-        <activity android:name=".MainActivity">
-
-        <activity android:name=".PlantLibraryActivity"></activity>
+        <activity android:name=".PlantLibraryActivity" />
         <activity android:name=".MyPlantActivity" />
         <activity android:name=".AddNewPlantActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
