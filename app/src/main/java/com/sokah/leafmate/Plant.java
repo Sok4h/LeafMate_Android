@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Plant implements Serializable {
 
-    private String id,name, userName,type,sunLight;
+    private String id,name,userName,type,sunLight;
     private Date bornDate;
 
 
@@ -17,7 +17,6 @@ public class Plant implements Serializable {
         this.bornDate=bornDate;
         this.userName=userName;
     }
-
     public String getId() {
         return id;
     }
