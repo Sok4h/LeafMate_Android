@@ -5,17 +5,18 @@ import java.util.Date;
 
 public class MyPlant implements Serializable {
 
-    private String id,name,userName,type,sunLight;
+    private String id, userId,name,userName,type,sunLight;
     private Date bornDate;
 
 
-    public MyPlant(String id, String name, String userName, String type, String sunLight, Date bornDate) {
+    public MyPlant(String id,String userId, String name, String userName, String type, String sunLight, Date bornDate) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.sunLight=sunLight;
         this.bornDate=bornDate;
         this.userName=userName;
+        this.userId = userId;
     }
     public String getId() {
         return id;
@@ -63,6 +64,14 @@ public class MyPlant implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public void Water(){
