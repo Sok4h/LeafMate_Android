@@ -2,7 +2,6 @@ package com.sokah.leafmate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,7 +19,7 @@ public class MyPlantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plant);
 
-        Plant plant = (Plant) getIntent().getSerializableExtra("plant");
+        MyPlant plant = (MyPlant) getIntent().getSerializableExtra("plant");
         title=findViewById(R.id.titleMyPlant);
         age=findViewById(R.id.ageMyPlant);
         type=findViewById(R.id.typeMyPlant);

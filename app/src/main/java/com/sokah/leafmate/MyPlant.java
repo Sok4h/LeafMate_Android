@@ -3,13 +3,13 @@ package com.sokah.leafmate;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Plant implements Serializable {
+public class MyPlant implements Serializable {
 
     private String id,name,userName,type,sunLight;
     private Date bornDate;
 
 
-    public Plant(String id, String name,String userName, String type,String sunLight,Date bornDate) {
+    public MyPlant(String id, String name, String userName, String type, String sunLight, Date bornDate) {
         this.id = id;
         this.name = name;
         this.type = type;
