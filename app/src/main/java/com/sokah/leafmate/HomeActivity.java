@@ -1,6 +1,7 @@
 package com.sokah.leafmate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseDatabase db;
     FirebaseAuth auth;
     String userId;
+    ConstraintLayout navBar_goLibrary;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class HomeActivity extends AppCompatActivity {
         listMyPlants = findViewById(R.id.myPlantsList);
         msgEmptyGarden = findViewById(R.id.msgMyPlantEmpty);
 
+        navBar_goLibrary = findViewById(R.id.navBar_goLibrary);
+
         adapterMyPlants = new MyPlantsAdapter();
 
         db =  FirebaseDatabase.getInstance();
@@ -42,6 +47,15 @@ public class HomeActivity extends AppCompatActivity {
         msgEmptyGarden.setVisibility(View.INVISIBLE);
 
         loadPlants();
+
+        navBar_goLibrary.setOnClickListener(
+                (v)->{
+                    Intent l = new Intent(this, LibraryActivity.class);
+                    startActivity(l);
+                    finish();
+                }
+        );
+
         btn_newPlant.setOnClickListener(
                 (v)->{
                     Intent i = new Intent(this, AddNewPlantActivity.class);
@@ -50,6 +64,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 }
         );
+
 
 
     }

@@ -2,7 +2,9 @@ package com.sokah.leafmate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -17,6 +19,7 @@ public class LibraryActivity extends AppCompatActivity {
     ListView plantLibList;
     FirebaseDatabase db;
     LibraryAdapter adapterLibPlants;
+    ConstraintLayout navBar_goMyPlants;
 
 
     @Override
@@ -25,10 +28,21 @@ public class LibraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_library);
 
         plantLibList = findViewById(R.id.listLibraryPlants);
+        navBar_goMyPlants = findViewById(R.id.navBar_goMyPlants);
 
         db= FirebaseDatabase.getInstance();
 
         adapterLibPlants = new LibraryAdapter();
+        loadPlants();
+
+
+        navBar_goMyPlants.setOnClickListener(
+                (v)->{
+                    Intent j = new Intent(this, HomeActivity.class);
+                    startActivity(j);
+                    finish();
+                }
+        );
 
     }
 
