@@ -1,6 +1,8 @@
 package com.sokah.leafmate;
 
-public class LibraryPlant {
+import java.io.Serializable;
+
+public class LibraryPlant implements Serializable {
 
     String Description,Name,Sunlight,Type,Watering;
 
