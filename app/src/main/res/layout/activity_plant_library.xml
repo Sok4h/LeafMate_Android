@@ -9,17 +9,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2PlantLibrary"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="162dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
         android:background="@drawable/layout_background"
         android:elevation="4dp"
         android:outlineSpotShadowColor="@color/coral"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imagePlantLibrary">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutPlantLibrary"
@@ -95,17 +95,16 @@
             android:id="@+id/descriptionPlantLibrary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/josefin_sans"
-            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+            android:padding="5dp"
+            android:text="This plant is ideal for warm weather and direct sunlight, it’s leaves provide protection to neighbouring pla nts. It’s easy to mantain and can go a few days without watering."
             android:textColor="@android:color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayoutPlantLibrary"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayoutPlantLibrary"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayoutPlantLibrary" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
