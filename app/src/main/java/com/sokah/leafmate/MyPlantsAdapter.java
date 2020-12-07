@@ -39,6 +39,10 @@ public class MyPlantsAdapter extends BaseAdapter {
         return position;
     }
 
+    public void clear(){
+        myPlantData.clear();
+        notifyDataSetChanged();
+    }
     @Override
     public View getView(int position, View row, ViewGroup list) {
 

@@ -44,6 +44,8 @@ public class HomeActivity extends AppCompatActivity {
         db =  FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
+        listMyPlants.setAdapter(adapterMyPlants);
+
         msgEmptyGarden.setVisibility(View.INVISIBLE);
 
         loadPlants();
@@ -79,6 +81,7 @@ public class HomeActivity extends AppCompatActivity {
                         public void onDataChange( DataSnapshot snapshot) {
                             if(snapshot.exists()){
                                 msgEmptyGarden.setVisibility(View.INVISIBLE);
+                                adapterMyPlants.clear();
                                 for(DataSnapshot child: snapshot.getChildren()){
                                     MyPlant myplant = child.getValue(MyPlant.class);
                                     adapterMyPlants.addNewMyPlant(myplant);

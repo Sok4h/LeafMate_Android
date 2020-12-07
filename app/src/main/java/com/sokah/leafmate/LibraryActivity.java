@@ -22,6 +22,7 @@ public class LibraryActivity extends AppCompatActivity {
     ConstraintLayout navBar_goMyPlants;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +30,12 @@ public class LibraryActivity extends AppCompatActivity {
 
         plantLibList = findViewById(R.id.listLibraryPlants);
         navBar_goMyPlants = findViewById(R.id.navBar_goMyPlants);
-
+        adapterLibPlants = new LibraryAdapter();
         db= FirebaseDatabase.getInstance();
 
-        adapterLibPlants = new LibraryAdapter();
+        plantLibList.setAdapter(adapterLibPlants);
+
+
         loadPlants();
 
 
@@ -51,6 +54,7 @@ public class LibraryActivity extends AppCompatActivity {
                 new ValueEventListener() {
                     @Override
                     public void onDataChange( DataSnapshot snapshot) {
+                        adapterLibPlants.clear();
                         for(DataSnapshot child: snapshot.getChildren()){
                             for(DataSnapshot plant: child.getChildren()) {
                                 LibraryPlant libraryPlant = plant.getValue(LibraryPlant.class);
