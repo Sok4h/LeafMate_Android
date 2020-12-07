@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputNameNewPlant" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnPlantItNewPlant"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -96,14 +96,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridViewNewPlant" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewNewPlant" />
 
     <ListView
-        android:id="@+id/gridViewNewPlant"
+        android:id="@+id/listViewNewPlant"
         android:layout_width="415dp"
         android:layout_height="254dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

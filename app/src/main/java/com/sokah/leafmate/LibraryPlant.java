@@ -5,8 +5,11 @@ import java.io.Serializable;
 public class LibraryPlant implements Serializable {
 
     String Description,Name,Sunlight,Type,Watering;
+    Boolean selected=false;
+
 
     public  LibraryPlant(){
+
 
     }
 
@@ -56,5 +59,13 @@ public class LibraryPlant implements Serializable {
 
     public void setWatering(String watering) {
         Watering = watering;
+    }
+
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
     }
 }
