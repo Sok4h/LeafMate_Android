@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Date;
+
 public class MyPlantActivity extends AppCompatActivity {
 
     TextView title,age,type,tip,sunLight;
@@ -119,6 +121,9 @@ public class MyPlantActivity extends AppCompatActivity {
 
         }
 
+        calculateAge(plant.getBornDate());
+    }
 
+    private void calculateAge(Date bornDate) {
     }
 }
