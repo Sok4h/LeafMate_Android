@@ -1,5 +1,6 @@
 package com.sokah.leafmate;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -18,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button btn_newPlant;
+    Button btn_newPlant, btn_logOut;
     ListView listMyPlants;
     TextView msgEmptyGarden;
     MyPlantsAdapter adapterMyPlants;
@@ -49,6 +50,24 @@ public class HomeActivity extends AppCompatActivity {
         msgEmptyGarden.setVisibility(View.INVISIBLE);
 
         loadPlants();
+
+        btn_logOut.setOnClickListener(
+                (v)->{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                            .setTitle("Log out")
+                            .setMessage("Are you sure you want to log out")
+                            .setNegativeButton("No",(dialog,id)->{
+                                dialog.dismiss();
+                            })
+                            .setPositiveButton("Yes" ,(dialog,id)->{
+                                auth.signOut();
+                                Intent i = new Intent(this, LoginActivity.class);
+                                startActivity(i);
+                                finish();
+                            });
+                    builder.show();
+                }
+        );
 
         navBar_goLibrary.setOnClickListener(
                 (v)->{

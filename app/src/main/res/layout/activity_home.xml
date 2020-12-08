@@ -26,7 +26,7 @@
         android:layout_width="65dp"
         android:layout_height="43dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/btn_add_new_plant"
         android:freezesText="false"
         android:text="+"
@@ -34,7 +34,7 @@
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Logout"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -113,4 +113,16 @@
                 app:srcCompat="@drawable/leafwhite" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/btn_Logout"
+        android:layout_width="31dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logout_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
