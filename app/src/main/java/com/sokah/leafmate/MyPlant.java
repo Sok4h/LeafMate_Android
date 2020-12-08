@@ -3,7 +3,7 @@ package com.sokah.leafmate;
 import java.io.Serializable;
 import java.util.Date;
 
-public class MyPlant implements Serializable {
+public class MyPlant  {
 
 
     private String id,userId,name,userName,type,sunLight,nextWatter;
