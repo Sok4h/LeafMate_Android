@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2PlantLibrary"
         android:layout_width="0dp"
-        android:layout_height="162dp"
+        android:layout_height="198dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
@@ -17,7 +17,6 @@
         android:elevation="4dp"
         android:outlineSpotShadowColor="@color/coral"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imagePlantLibrary">
 
@@ -96,13 +95,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
             android:fontFamily="@font/josefin_sans"
             android:padding="5dp"
             android:text="This plant is ideal for warm weather and direct sunlight, it’s leaves provide protection to neighbouring pla nts. It’s easy to mantain and can go a few days without watering."
             android:textColor="@android:color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/constraintLayoutPlantLibrary"
             app:layout_constraintStart_toStartOf="@+id/constraintLayoutPlantLibrary"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayoutPlantLibrary" />

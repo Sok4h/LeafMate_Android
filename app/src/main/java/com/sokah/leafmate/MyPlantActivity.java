@@ -1,5 +1,6 @@
 package com.sokah.leafmate;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +23,8 @@ public class MyPlantActivity extends AppCompatActivity {
     TextView title, age, type, tip, sunLight;
     ImageView imagePlant;
     Button water;
-    ImageButton back;
+    ImageButton back,delete;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +39,38 @@ public class MyPlantActivity extends AppCompatActivity {
         water = findViewById(R.id.btnWaterMyPlant);
         sunLight = findViewById(R.id.sunLightMyPlant);
         back = findViewById(R.id.btnBackMyPlant);
+        delete=findViewById(R.id.btnDelete);
+        firebaseDatabase=FirebaseDatabase.getInstance();
+
+
+        delete.setOnClickListener(
+
+                (v)->{
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                            .setTitle("Delete")
+                            .setMessage("Are you sure you want to delete this plant?")
+                            .setNegativeButton("No",(dialog,id)->{
+                                dialog.dismiss();
+                            })
+                            .setPositiveButton("Yes" ,(dialog,id)->{
+                                firebaseDatabase.getReference().child("GardenPlants").child(plant.getUserId()).child(plant.getId()).setValue(null);
+                                finish();
+                            });
+                    builder.show();
+
+                }
+        );
 
         water.setOnClickListener(
                 (v) -> {
 
                     plant.Water();
-
                 }
         );
 
         back.setOnClickListener(
                 (v) -> {
-
                     finish();
                 }
         );
@@ -55,7 +79,7 @@ public class MyPlantActivity extends AppCompatActivity {
         type.setText(plant.getType());
         sunLight.setText(plant.getSunLight());
 
-        Log.e("TAG", plant.getName());
+
 
         switch (plant.getName()) {
 
@@ -115,14 +139,11 @@ public class MyPlantActivity extends AppCompatActivity {
                 imagePlant.setImageResource(R.drawable.cauliflour);
 
                 break;
+            case "Red Bell Pepper":
 
-            /*case "Red Bell Pepper":
-
-                imgLibPlant.setImageResource(R.drawable.be);
+                imagePlant.setImageResource(R.drawable.pimenton);
 
                 break;
-    */
-
 
         }
         String resultAge = calculateAge(plant.getBornDate());

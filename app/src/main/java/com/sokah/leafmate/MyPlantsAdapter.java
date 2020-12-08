@@ -23,6 +23,7 @@ public class MyPlantsAdapter extends BaseAdapter {
     }
     public void addNewMyPlant(MyPlant newMyPlant){
         myPlantData.add(newMyPlant);
+        notifyDataSetChanged();
     }
     @Override
     public int getCount() {
@@ -115,6 +116,14 @@ public class MyPlantsAdapter extends BaseAdapter {
                 imgMyPlant.setImageResource(R.drawable.circlecauliflour);
 
                 break;
+
+            case "Red Bell Pepper":
+
+                imgMyPlant.setImageResource(R.drawable.pimenton);
+
+                break;
+
+
 
         }
 

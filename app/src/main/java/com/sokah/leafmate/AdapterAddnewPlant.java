@@ -13,17 +13,19 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
-import java.util.logging.Handler;
+
 
 
 public class AdapterAddnewPlant extends BaseAdapter {
 
 
-    public ArrayList<LibraryPlant> libraryPlantArrayList;
-    public View renglon;
+    private ArrayList<LibraryPlant> libraryPlantArrayList;
+    private View renglon;
+    private  LibraryPlant plantSelcted;
 
     public AdapterAddnewPlant() {
         libraryPlantArrayList = new ArrayList<>();
+        plantSelcted=null;
     }
 
     @Override
@@ -53,6 +55,7 @@ public class AdapterAddnewPlant extends BaseAdapter {
         descriptionLibPlant.setText(libraryPlantArrayList.get(i).getDescription());
 
 
+
         renglon.setOnClickListener(
                 (v) -> {
 
@@ -62,28 +65,14 @@ public class AdapterAddnewPlant extends BaseAdapter {
 
                     }
                     libraryPlantArrayList.get(i).setSelected(true);
+                    plantSelcted=libraryPlantArrayList.get(i);
                     notifyDataSetChanged();
-
-                    Log.e("TAG", ""+libraryPlantArrayList.get(i).getSelected() );
-
-                    if(libraryPlantArrayList.get(i).getSelected()) {
-                        Log.e("TAG", "entré" );
-                        renglon.setBackgroundColor(ContextCompat.getColor(renglon.getContext(), R.color.darkGreen));
-                        titlePlantLib.setTextColor(Color.parseColor("#ffffff"));
-                        descriptionLibPlant.setTextColor(Color.parseColor("#ffffff"));
-                    }
-                    else{
-
-                        renglon.setBackgroundColor(Color.parseColor("#ffffff"));
-                        titlePlantLib.setTextColor(ContextCompat.getColor(renglon.getContext(), R.color.darkGreen));
-                        descriptionLibPlant.setTextColor(Color.parseColor("#000000"));
-                    }
 
                 }
         );
 
         if(libraryPlantArrayList.get(i).getSelected()) {
-            Log.e("TAG", "entré" );
+
             renglon.setBackgroundColor(ContextCompat.getColor(renglon.getContext(), R.color.darkGreen));
             titlePlantLib.setTextColor(Color.parseColor("#ffffff"));
             descriptionLibPlant.setTextColor(Color.parseColor("#ffffff"));
@@ -155,18 +144,17 @@ public class AdapterAddnewPlant extends BaseAdapter {
 
                 break;
 
-            /*case "Red Bell Pepper":
+            case "Red Bell Pepper":
 
-                imgLibPlant.setImageResource(R.drawable.be);
+                imgLibPlant.setImageResource(R.drawable.circlepimenton);
 
                 break;
-    */
-
 
         }
 
         return renglon;
     }
+
 
     public void AddNewPlant(LibraryPlant libraryPlant) {
 
@@ -180,5 +168,11 @@ public class AdapterAddnewPlant extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public LibraryPlant getPlantSelcted() {
+        return plantSelcted;
+    }
 
+    public void setPlantSelcted(LibraryPlant plantSelcted) {
+        this.plantSelcted = plantSelcted;
+    }
 }

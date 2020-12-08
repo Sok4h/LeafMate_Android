@@ -17,7 +17,7 @@ public class PlantLibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_library);
 
-        LibraryPlant plantLib = (LibraryPlant) getIntent().getSerializableExtra("InfoLibPlant");
+        LibraryPlant plantLib = (LibraryPlant) getIntent().getSerializableExtra("infoLibPlant");
 
         imgLibPlant = findViewById(R.id.imagePlantLibrary);
 
@@ -91,12 +91,12 @@ public class PlantLibraryActivity extends AppCompatActivity {
 
                 break;
 
-            /*case "Red Bell Pepper":
+            case "Red Bell Pepper":
 
-                imgLibPlant.setImageResource(R.drawable.be);
+                imgLibPlant.setImageResource(R.drawable.pimenton);
 
                 break;
-    */
+
 
 
         }

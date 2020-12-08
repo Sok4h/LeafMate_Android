@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -52,12 +53,24 @@ public class AddNewPlantActivity extends AppCompatActivity {
 
                     String userId =firebaseAuth.getCurrentUser().getUid();
                     String id = UUID.randomUUID().toString();
-                    MyPlant myPlant = new MyPlant(id,userId,"Blueberry",inputNameNewPlant.getText().toString(),"Fruit","Direct", bornDate,"5");
+                    LibraryPlant infoPlant = adapterAddnewPlant.getPlantSelcted();
 
-                    firebaseDatabase.getReference().child("GardenPlants").child(userId).child(id).setValue(myPlant);
+                    if(infoPlant==null||inputNameNewPlant.getText().toString().isEmpty()){
 
-                    Intent intent = new Intent(this,HomeActivity.class);
-                    startActivity(intent);
+                        Toast.makeText(this, "Please select a plant and name it", Toast.LENGTH_SHORT).show();
+                    }
+
+                    else {
+
+                        MyPlant myPlant = new MyPlant(id,userId,infoPlant.getName(),inputNameNewPlant.getText().toString(),infoPlant.getType(),infoPlant.getSunlight(), "2020-02-24",infoPlant.getWatering());
+
+                        firebaseDatabase.getReference().child("GardenPlants").child(userId).child(id).setValue(myPlant);
+
+                        Intent intent = new Intent(this,HomeActivity.class);
+                        startActivity(intent);
+
+                    }
+
                 }
         );
 

@@ -75,13 +75,14 @@ public class HomeActivity extends AppCompatActivity {
         if(auth.getCurrentUser() != null){
             String id = auth.getCurrentUser().getUid();
 
-            db.getReference().child("GardenPlants").child(id).addListenerForSingleValueEvent(
+            db.getReference().child("GardenPlants").child(id).addValueEventListener(
                     new ValueEventListener() {
 
                         public void onDataChange( DataSnapshot snapshot) {
+                            adapterMyPlants.clear();
                             if(snapshot.exists()){
                                 msgEmptyGarden.setVisibility(View.INVISIBLE);
-                                adapterMyPlants.clear();
+
                                 for(DataSnapshot child: snapshot.getChildren()){
                                     MyPlant myplant = child.getValue(MyPlant.class);
                                     adapterMyPlants.addNewMyPlant(myplant);

@@ -31,6 +31,12 @@ public class LoginActivity extends AppCompatActivity {
         eT_Email = findViewById(R.id.inputEmailLogin);
         textRegister = findViewById(R.id.textRegister);
 
+        if(auth.getCurrentUser()!=null){
+
+
+            Intent intent= new Intent(this,HomeActivity.class);
+            startActivity(intent);
+        }
 
         btn_Login.setOnClickListener(
                 (v) -> {

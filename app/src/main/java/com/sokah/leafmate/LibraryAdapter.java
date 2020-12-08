@@ -122,7 +122,15 @@ public class LibraryAdapter extends BaseAdapter {
 
                 break;
 
-            }
+            case "Red Bell Pepper":
+
+                imgLibPlant.setImageResource(R.drawable.circlepimenton);
+
+                break;
+
+        }
+
+
 
             cardPlantView.setOnClickListener(
                     (v) -> {
