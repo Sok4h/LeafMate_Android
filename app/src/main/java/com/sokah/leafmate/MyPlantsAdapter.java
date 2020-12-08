@@ -185,7 +185,7 @@ public class MyPlantsAdapter extends BaseAdapter {
         String actualTime = formatterTim.format(calendar.getTime());
 
         try {
-            int hours = 3600 * 1000;
+            int hours = 60 * 1000;
             Date t1 = formatterTim.parse(actualTime);
 
             Date tborn= formatterTim.parse(bornTime);

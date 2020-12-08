@@ -72,6 +72,7 @@ public class MyPlantActivity extends AppCompatActivity {
                     Calendar calendar = Calendar.getInstance();
                     String actualDate = formatter.format(calendar.getTime());
                     firebaseDatabase.getReference().child("GardenPlants").child(plant.getUserId()).child(plant.getId()).child("bornTime").setValue(actualDate);
+
                 }
         );
 
@@ -162,6 +163,7 @@ public class MyPlantActivity extends AppCompatActivity {
         float time = Float.parseFloat(infoWater[0]);
 
         if(time<=0){
+
             water.setText("Need water");
             water.setTextColor(Color.WHITE);
             water.setBackground(ContextCompat.getDrawable(this,R.drawable.containerstateplant));
@@ -184,7 +186,7 @@ public class MyPlantActivity extends AppCompatActivity {
         String actualTime = formatterTim.format(calendar.getTime());
 
         try {
-            int hours = 3600 * 1000;
+            int hours = 60 * 1000;
             Date t1 = formatterTim.parse(actualTime);
 
             Date tborn= formatterTim.parse(bornTime);
