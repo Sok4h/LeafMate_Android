@@ -65,7 +65,7 @@ public class MyPlantActivity extends AppCompatActivity {
 
         water.setOnClickListener(
                 (v) -> {
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                     Calendar calendar = Calendar.getInstance();
                     String actualDate = formatter.format(calendar.getTime());
                     firebaseDatabase.getReference().child("GardenPlants").child(plant.getUserId()).child(plant.getId()).child("bornTime").setValue(actualDate);

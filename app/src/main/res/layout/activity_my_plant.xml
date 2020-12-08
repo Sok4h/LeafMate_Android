@@ -101,14 +101,14 @@
                 android:id="@+id/waterFrequencyMyPlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="60dp"
+                android:layout_marginStart="70dp"
                 android:fontFamily="@font/josefin_sans_bold"
                 android:text="35 Min"
                 android:textColor="@color/lightGreen"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

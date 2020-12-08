@@ -162,12 +162,12 @@ public class MyPlantsAdapter extends BaseAdapter {
         if(time<=0){
             statePlant.setText("Need water");
             statePlant.setTextColor(Color.WHITE);
-            containerState.setBackground(ContextCompat.getDrawable(row.getContext(),R.drawable.containerstateplant));
+            containerState.setBackground(ContextCompat.getDrawable(cardMyPlant.getContext(),R.drawable.containerstateplant));
 
         }else{
             statePlant.setText("Already water");
-            statePlant.setTextColor(ContextCompat.getColor(row.getContext(),R.color.coral));
-            containerState.setBackground(ContextCompat.getDrawable(row.getContext(),R.drawable.container_state_ready));
+            statePlant.setTextColor(ContextCompat.getColor(cardMyPlant.getContext(),R.color.coral));
+            containerState.setBackground(ContextCompat.getDrawable(cardMyPlant.getContext(),R.drawable.container_state_ready));
 
         }
 

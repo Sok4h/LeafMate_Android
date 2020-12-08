@@ -34,9 +34,9 @@
 
             <TextView
                 android:id="@+id/typePlantLibrary"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="16dp"
                 android:fontFamily="@font/josefin_sans"
                 android:text="Fruit"
                 android:textColor="@color/lightGreen"
@@ -92,12 +92,13 @@
 
         <TextView
             android:id="@+id/descriptionPlantLibrary"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/josefin_sans"
             android:padding="5dp"
             android:text="This plant is ideal for warm weather and direct sunlight, it’s leaves provide protection to neighbouring pla nts. It’s easy to mantain and can go a few days without watering."
+            android:textAlignment="viewStart"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/constraintLayoutPlantLibrary"
