@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,7 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button btn_newPlant, btn_logOut;
+    Button btn_newPlant;
+    ImageButton  btn_logOut;
     ListView listMyPlants;
     TextView msgEmptyGarden;
     MyPlantsAdapter adapterMyPlants;
@@ -35,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         btn_newPlant = findViewById(R.id.btn_NewPlant);
+        btn_logOut = findViewById(R.id.btn_Logout);
         listMyPlants = findViewById(R.id.myPlantsList);
         msgEmptyGarden = findViewById(R.id.msgMyPlantEmpty);
 

@@ -2,7 +2,6 @@ package com.sokah.leafmate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ public class PlantLibraryActivity extends AppCompatActivity {
         imgLibPlant = findViewById(R.id.imagePlantLibrary);
 
         titlePlantLibrary=findViewById(R.id.titlePlantLibrary);
-        waterFrequencyPlantLibrary=findViewById(R.id.waterFrequencyPlantLibrary);
+        waterFrequencyPlantLibrary=findViewById(R.id.waterFrequencyMyPlant);
         typePlantLibrary=findViewById(R.id.typePlantLibrary);
         descriptionPlantLibrary=findViewById(R.id.descriptionPlantLibrary);
 

@@ -51,6 +51,9 @@ public class AddNewPlantActivity extends AppCompatActivity {
                     SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
                     String bornDate = formatter.format(currentTime);
 
+                    SimpleDateFormat formatterTim= new SimpleDateFormat("HH:mm:ss");
+                    String bornTime = formatterTim.format(currentTime);
+
                     String userId =firebaseAuth.getCurrentUser().getUid();
                     String id = UUID.randomUUID().toString();
                     LibraryPlant infoPlant = adapterAddnewPlant.getPlantSelcted();
@@ -62,7 +65,7 @@ public class AddNewPlantActivity extends AppCompatActivity {
 
                     else {
 
-                        MyPlant myPlant = new MyPlant(id,userId,infoPlant.getName(),inputNameNewPlant.getText().toString(),infoPlant.getType(),infoPlant.getSunlight(), "2020-02-24",infoPlant.getWatering());
+                        MyPlant myPlant = new MyPlant(id,userId,infoPlant.getName(),inputNameNewPlant.getText().toString(),infoPlant.getType(),infoPlant.getSunlight(), bornDate,infoPlant.getWatering(),bornTime);
 
                         firebaseDatabase.getReference().child("GardenPlants").child(userId).child(id).setValue(myPlant);
 

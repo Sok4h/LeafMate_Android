@@ -7,10 +7,10 @@ public class MyPlant implements Serializable {
 
 
     private String id,userId,name,userName,type,sunLight,nextWatter;
-    private String bornDate;
+    private String bornDate, bornTime;
 
 
-    public MyPlant(String id,String userId, String name, String userName, String type, String sunLight, String bornDate,String nextWatter) {
+    public MyPlant(String id,String userId, String name, String userName, String type, String sunLight, String bornDate,String nextWatter, String bornTime) {
 
         this.id = id;
         this.name = name;
@@ -22,6 +22,7 @@ public class MyPlant implements Serializable {
         this.nextWatter = nextWatter;
 
         this.userId = userId;
+        this.bornTime = bornTime;
 
     }
 
@@ -79,6 +80,14 @@ public class MyPlant implements Serializable {
 
     public String getUserId() {
         return userId;
+    }
+
+    public String getBornTime() {
+        return bornTime;
+    }
+
+    public void setBornTime(String bornTime) {
+        this.bornTime = bornTime;
     }
 
     public void setUserId(String userId) {

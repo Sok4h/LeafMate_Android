@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MyPlantActivity extends AppCompatActivity {
 
-    TextView title, age, type, tip, sunLight;
+    TextView title, age, type, tip, sunLight, waterFreq;
     ImageView imagePlant;
     Button water;
     ImageButton back,delete;
@@ -37,6 +37,7 @@ public class MyPlantActivity extends AppCompatActivity {
         type = findViewById(R.id.typeMyPlant);
         imagePlant = findViewById(R.id.imageMyPlant);
         water = findViewById(R.id.btnWaterMyPlant);
+        waterFreq = findViewById(R.id.waterFrequencyMyPlant);
         sunLight = findViewById(R.id.sunLightMyPlant);
         back = findViewById(R.id.btnBackMyPlant);
         delete=findViewById(R.id.btnDelete);
@@ -64,8 +65,10 @@ public class MyPlantActivity extends AppCompatActivity {
 
         water.setOnClickListener(
                 (v) -> {
-
-                    plant.Water();
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    Calendar calendar = Calendar.getInstance();
+                    String actualDate = formatter.format(calendar.getTime());
+                    firebaseDatabase.getReference().child("GardenPlants").child(plant.getUserId()).child(plant.getId()).child("bornTime").setValue(actualDate);
                 }
         );
 
@@ -149,7 +152,41 @@ public class MyPlantActivity extends AppCompatActivity {
         String resultAge = calculateAge(plant.getBornDate());
         age.setText(resultAge);
 
+        String waterFrequen = calculateWaterFreq(plant.getBornTime());
+        waterFreq.setText(waterFrequen);
 
+    }
+
+    private String calculateWaterFreq(String bornTime) {
+        String timeToWater = "0";
+
+        SimpleDateFormat formatterTim = new SimpleDateFormat("HH:mm:ss");
+        Calendar calendar = Calendar.getInstance();
+
+        String actualTime = formatterTim.format(calendar.getTime());
+
+        try {
+            Date t1 = formatterTim.parse(actualTime);
+            Date t2= formatterTim.parse(bornTime);
+
+            long difference_Time = t1.getTime() - t2.getTime();
+
+            long difference_Hours = TimeUnit.MILLISECONDS.toHours(difference_Time);
+            long difference_Minutes = TimeUnit.MILLISECONDS.toMinutes(difference_Time);
+
+            if(difference_Hours>1){
+                timeToWater = difference_Hours + " hours";
+
+            }else{
+                timeToWater = difference_Minutes + " minutes";
+            }
+
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+
+        return timeToWater;
     }
 
 

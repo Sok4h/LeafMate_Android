@@ -57,7 +57,7 @@
                 android:textColor="#BCB4B2"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/waterFrequencyPlantLibrary"
+                app:layout_constraintStart_toEndOf="@+id/waterFrequencyMyPlant"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.533" />
 
@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/waterFrequencyPlantLibrary"
+                android:id="@+id/waterFrequencyMyPlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
