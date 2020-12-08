@@ -61,58 +61,58 @@ public class MyPlantActivity extends AppCompatActivity {
 
             case "Blueberry":
 
-                imagePlant.setImageResource(R.drawable.circleblueberry);
+                imagePlant.setImageResource(R.drawable.blueberry);
 
                 break;
             case "Kumquat":
 
-                imagePlant.setImageResource(R.drawable.circlekumquat);
+                imagePlant.setImageResource(R.drawable.kumquat);
 
                 break;
             case "Lime":
 
-                imagePlant.setImageResource(R.drawable.circlelime);
+                imagePlant.setImageResource(R.drawable.lime);
 
                 break;
             case "Strawberry":
 
-                imagePlant.setImageResource(R.drawable.circlestrawberry);
+                imagePlant.setImageResource(R.drawable.strawberry);
 
                 break;
 
 
             case "Cilantro":
 
-                imagePlant.setImageResource(R.drawable.circlecilantro);
+                imagePlant.setImageResource(R.drawable.cilantro);
 
                 break;
             case "Mint":
 
-                imagePlant.setImageResource(R.drawable.circlemint);
+                imagePlant.setImageResource(R.drawable.mint);
 
                 break;
             case "Rosemary":
 
-                imagePlant.setImageResource(R.drawable.circlerosemary);
+                imagePlant.setImageResource(R.drawable.rosemary);
 
                 break;
 
 
             case "Cabbage":
 
-                imagePlant.setImageResource(R.drawable.circlecabbage);
+                imagePlant.setImageResource(R.drawable.cabbage);
 
                 break;
 
 
             case "Carrot":
 
-                imagePlant.setImageResource(R.drawable.circlecarrot);
+                imagePlant.setImageResource(R.drawable.carrot);
 
                 break;
             case "Cauliflower":
 
-                imagePlant.setImageResource(R.drawable.circlecauliflour);
+                imagePlant.setImageResource(R.drawable.cauliflour);
 
                 break;
 

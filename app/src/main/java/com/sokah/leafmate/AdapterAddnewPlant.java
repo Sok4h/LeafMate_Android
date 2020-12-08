@@ -59,15 +59,29 @@ public class AdapterAddnewPlant extends BaseAdapter {
                     for ( LibraryPlant plant :libraryPlantArrayList ) {
 
                         plant.setSelected(false);
+
                     }
                     libraryPlantArrayList.get(i).setSelected(true);
+                    notifyDataSetChanged();
 
                     Log.e("TAG", ""+libraryPlantArrayList.get(i).getSelected() );
 
+                    if(libraryPlantArrayList.get(i).getSelected()) {
+                        Log.e("TAG", "entré" );
+                        renglon.setBackgroundColor(ContextCompat.getColor(renglon.getContext(), R.color.darkGreen));
+                        titlePlantLib.setTextColor(Color.parseColor("#ffffff"));
+                        descriptionLibPlant.setTextColor(Color.parseColor("#ffffff"));
+                    }
+                    else{
+
+                        renglon.setBackgroundColor(Color.parseColor("#ffffff"));
+                        titlePlantLib.setTextColor(ContextCompat.getColor(renglon.getContext(), R.color.darkGreen));
+                        descriptionLibPlant.setTextColor(Color.parseColor("#000000"));
+                    }
 
                 }
         );
-/*
+
         if(libraryPlantArrayList.get(i).getSelected()) {
             Log.e("TAG", "entré" );
             renglon.setBackgroundColor(ContextCompat.getColor(renglon.getContext(), R.color.darkGreen));
@@ -80,8 +94,6 @@ public class AdapterAddnewPlant extends BaseAdapter {
             titlePlantLib.setTextColor(ContextCompat.getColor(renglon.getContext(), R.color.darkGreen));
             descriptionLibPlant.setTextColor(Color.parseColor("#000000"));
         }
-
- */
 
 
         switch (libraryPlantArrayList.get(i).getName()) {
