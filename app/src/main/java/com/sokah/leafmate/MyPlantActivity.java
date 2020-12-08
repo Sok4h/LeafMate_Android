@@ -2,8 +2,11 @@ package com.sokah.leafmate;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -152,12 +155,27 @@ public class MyPlantActivity extends AppCompatActivity {
         String resultAge = calculateAge(plant.getBornDate());
         age.setText(resultAge);
 
-        String waterFrequen = calculateWaterFreq(plant.getBornTime());
+        String waterFrequen = calculateWaterFreq(plant.getBornTime(), plant.getNextWatter());
         waterFreq.setText(waterFrequen);
+
+        String infoWater[] = waterFrequen.split(" ");
+        float time = Float.parseFloat(infoWater[0]);
+
+        if(time<=0){
+            water.setText("Need water");
+            water.setTextColor(Color.WHITE);
+            water.setBackground(ContextCompat.getDrawable(this,R.drawable.containerstateplant));
+
+        }else{
+            water.setText("Already water");
+            water.setTextColor(ContextCompat.getColor(this,R.color.coral));
+            water.setBackground(ContextCompat.getDrawable(this,R.drawable.container_state_ready));
+
+        }
 
     }
 
-    private String calculateWaterFreq(String bornTime) {
+    private String calculateWaterFreq(String bornTime, String nextWater) {
         String timeToWater = "0";
 
         SimpleDateFormat formatterTim = new SimpleDateFormat("HH:mm:ss");
@@ -166,10 +184,19 @@ public class MyPlantActivity extends AppCompatActivity {
         String actualTime = formatterTim.format(calendar.getTime());
 
         try {
+            int hours = 3600 * 1000;
             Date t1 = formatterTim.parse(actualTime);
-            Date t2= formatterTim.parse(bornTime);
 
-            long difference_Time = t1.getTime() - t2.getTime();
+            Date tborn= formatterTim.parse(bornTime);
+
+            String infoWater[] = nextWater.split(" ");
+            int nHours = Integer.parseInt(infoWater[0]);
+
+
+
+            Date t2 = new Date(tborn.getTime()+nHours*hours);
+
+            long difference_Time = t2.getTime() - t1.getTime();
 
             long difference_Hours = TimeUnit.MILLISECONDS.toHours(difference_Time);
             long difference_Minutes = TimeUnit.MILLISECONDS.toMinutes(difference_Time);

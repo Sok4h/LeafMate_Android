@@ -153,7 +153,7 @@ public class MyPlantsAdapter extends BaseAdapter {
 
 
 
-        String waterFreq = calculateWaterFreq(myPlantInfo.getBornTime());
+        String waterFreq = calculateWaterFreq(myPlantInfo.getBornTime(), myPlantInfo.getNextWatter());
         timerMyPlant.setText(waterFreq);
 
         String infoWater[] = waterFreq.split(" ");
@@ -174,7 +174,7 @@ public class MyPlantsAdapter extends BaseAdapter {
         return cardMyPlant;
     }
 
-    private String calculateWaterFreq(String bornTime) {
+    private String calculateWaterFreq(String bornTime, String nextWater) {
         String timeToWater = "0";
 
         SimpleDateFormat formatterTim = new SimpleDateFormat("HH:mm:ss");
@@ -183,10 +183,19 @@ public class MyPlantsAdapter extends BaseAdapter {
         String actualTime = formatterTim.format(calendar.getTime());
 
         try {
+            int hours = 3600 * 1000;
             Date t1 = formatterTim.parse(actualTime);
-            Date t2= formatterTim.parse(bornTime);
 
-            long difference_Time = t1.getTime() - t2.getTime();
+            Date tborn= formatterTim.parse(bornTime);
+
+            String infoWater[] = nextWater.split(" ");
+            int nHours = Integer.parseInt(infoWater[0]);
+
+
+
+            Date t2 = new Date(tborn.getTime()+nHours*hours);
+
+            long difference_Time = t2.getTime() - t1.getTime();
 
             long difference_Hours = TimeUnit.MILLISECONDS.toHours(difference_Time);
             long difference_Minutes = TimeUnit.MILLISECONDS.toMinutes(difference_Time);
