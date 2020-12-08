@@ -24,6 +24,11 @@ public class MyPlant implements Serializable {
         this.userId = userId;
 
     }
+
+    public MyPlant(){
+
+
+    }
     public String getId() {
         return id;
     }

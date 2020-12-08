@@ -55,7 +55,7 @@ public class MyPlantsAdapter extends BaseAdapter {
         TextView timerMyPlant = cardMyPlant.findViewById(R.id.textTimeWater);
         TextView titleMyPlant = cardMyPlant.findViewById(R.id.myPlantTitle);
 
-        titleMyPlant.setText(myPlantInfo.getName());
+        titleMyPlant.setText(myPlantInfo.getUserName());
 
         switch (myPlantInfo.getName()) {
 

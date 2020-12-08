@@ -46,19 +46,14 @@
 
     <ImageView
         android:id="@+id/imageMyPlant"
-        android:layout_width="201dp"
-        android:layout_height="175dp"
+        android:layout_width="233dp"
+        android:layout_height="220dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginBottom="32dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/btnWaterMyPlant"
+        android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ageMyPlant"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@drawable/kumquat" />
+        app:layout_constraintTop_toBottomOf="@+id/ageMyPlant" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2PlantLibrary"
@@ -66,13 +61,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/layout_background"
         android:elevation="4dp"
         android:outlineSpotShadowColor="@color/coral"
+        app:layout_constraintBottom_toTopOf="@+id/btnWaterMyPlant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMyPlant">
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutPlantLibrary"
@@ -212,14 +208,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/btn"
         android:text="Already Watered"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2PlantLibrary" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -230,5 +226,5 @@
         android:background="@drawable/btn_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_baseline_settings_24" />
+        tools:srcCompat="@drawable/iconsettings" />
 </androidx.constraintlayout.widget.ConstraintLayout>

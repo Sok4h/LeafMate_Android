@@ -3,6 +3,7 @@ package com.sokah.leafmate;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -48,9 +49,12 @@ public class AddNewPlantActivity extends AppCompatActivity {
 
                     String userId =firebaseAuth.getCurrentUser().getUid();
                     String id = UUID.randomUUID().toString();
-                    MyPlant myPlant = new MyPlant(id,userId,inputNameNewPlant.getText().toString(),"Blueberry","Fruit","Direct", currentTime);
+                    MyPlant myPlant = new MyPlant(id,userId,"Blueberry",inputNameNewPlant.getText().toString(),"Fruit","Direct", currentTime,"5");
 
                     firebaseDatabase.getReference().child("GardenPlants").child(userId).child(id).setValue(myPlant);
+
+                    Intent intent = new Intent(this,HomeActivity.class);
+                    startActivity(intent);
                 }
         );
 

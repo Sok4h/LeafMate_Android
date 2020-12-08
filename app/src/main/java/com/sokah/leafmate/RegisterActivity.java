@@ -32,6 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
         eT_Name = findViewById(R.id.inputNameRegister);
         btnResgister = findViewById(R.id.btnRegister);
         textLogin= findViewById(R.id.textLogin);
+        auth=FirebaseAuth.getInstance();
+        db=FirebaseDatabase.getInstance();
 
         btnResgister.setOnClickListener(
                 (v) -> {
