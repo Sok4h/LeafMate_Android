@@ -28,6 +28,7 @@ public class MyPlantActivity extends AppCompatActivity {
     Button water;
     ImageButton back,delete;
     FirebaseDatabase firebaseDatabase;
+    float time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class MyPlantActivity extends AppCompatActivity {
         back = findViewById(R.id.btnBackMyPlant);
         delete=findViewById(R.id.btnDelete);
         firebaseDatabase=FirebaseDatabase.getInstance();
+
 
 
         delete.setOnClickListener(
@@ -72,6 +74,19 @@ public class MyPlantActivity extends AppCompatActivity {
                     Calendar calendar = Calendar.getInstance();
                     String actualDate = formatter.format(calendar.getTime());
                     firebaseDatabase.getReference().child("GardenPlants").child(plant.getUserId()).child(plant.getId()).child("bornTime").setValue(actualDate);
+
+                    if(time<=0){
+
+                        water.setText("Need water");
+                        water.setTextColor(Color.WHITE);
+                        water.setBackground(ContextCompat.getDrawable(this,R.drawable.containerstateplant));
+
+                    }else{
+                        water.setText("Already water");
+                        water.setTextColor(ContextCompat.getColor(this,R.color.coral));
+                        water.setBackground(ContextCompat.getDrawable(this,R.drawable.container_state_ready));
+
+                    }
 
                 }
         );
@@ -160,7 +175,7 @@ public class MyPlantActivity extends AppCompatActivity {
         waterFreq.setText(waterFrequen);
 
         String infoWater[] = waterFrequen.split(" ");
-        float time = Float.parseFloat(infoWater[0]);
+        time = Float.parseFloat(infoWater[0]);
 
         if(time<=0){
 
