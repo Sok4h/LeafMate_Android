@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
@@ -46,10 +47,12 @@ public class AddNewPlantActivity extends AppCompatActivity {
                 (v)->{
 
                     Date currentTime = Calendar.getInstance().getTime();
+                    SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+                    String bornDate = formatter.format(currentTime);
 
                     String userId =firebaseAuth.getCurrentUser().getUid();
                     String id = UUID.randomUUID().toString();
-                    MyPlant myPlant = new MyPlant(id,userId,"Blueberry",inputNameNewPlant.getText().toString(),"Fruit","Direct", currentTime,"5");
+                    MyPlant myPlant = new MyPlant(id,userId,"Blueberry",inputNameNewPlant.getText().toString(),"Fruit","Direct", bornDate,"5");
 
                     firebaseDatabase.getReference().child("GardenPlants").child(userId).child(id).setValue(myPlant);
 

@@ -7,10 +7,10 @@ public class MyPlant implements Serializable {
 
 
     private String id,userId,name,userName,type,sunLight,nextWatter;
-    private Date bornDate;
+    private String bornDate;
 
 
-    public MyPlant(String id,String userId, String name, String userName, String type, String sunLight, Date bornDate,String nextWatter) {
+    public MyPlant(String id,String userId, String name, String userName, String type, String sunLight, String bornDate,String nextWatter) {
 
         this.id = id;
         this.name = name;
@@ -45,11 +45,11 @@ public class MyPlant implements Serializable {
         return sunLight;
     }
 
-    public Date getBornDate() {
+    public String getBornDate() {
         return bornDate;
     }
 
-    public void setBornDate(Date bornDate) {
+    public void setBornDate(String bornDate) {
         this.bornDate = bornDate;
     }
 

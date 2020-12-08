@@ -9,30 +9,35 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class MyPlantActivity extends AppCompatActivity {
 
-    TextView title,age,type,tip,sunLight;
+    TextView title, age, type, tip, sunLight;
     ImageView imagePlant;
     Button water;
     ImageButton back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plant);
 
         MyPlant plant = (MyPlant) getIntent().getSerializableExtra("infoMyPlant");
-        title=findViewById(R.id.titleMyPlant);
-        age=findViewById(R.id.ageMyPlant);
-        type=findViewById(R.id.typeMyPlant);
-        imagePlant=findViewById(R.id.imageMyPlant);
-        water=findViewById(R.id.btnWaterMyPlant);
-        sunLight=findViewById(R.id.sunLightMyPlant);
-        back=findViewById(R.id.btnBackMyPlant);
+        title = findViewById(R.id.titleMyPlant);
+        age = findViewById(R.id.ageMyPlant);
+        type = findViewById(R.id.typeMyPlant);
+        imagePlant = findViewById(R.id.imageMyPlant);
+        water = findViewById(R.id.btnWaterMyPlant);
+        sunLight = findViewById(R.id.sunLightMyPlant);
+        back = findViewById(R.id.btnBackMyPlant);
 
         water.setOnClickListener(
-                (v)->{
+                (v) -> {
 
                     plant.Water();
 
@@ -40,7 +45,7 @@ public class MyPlantActivity extends AppCompatActivity {
         );
 
         back.setOnClickListener(
-                (v)->{
+                (v) -> {
 
                     finish();
                 }
@@ -50,7 +55,7 @@ public class MyPlantActivity extends AppCompatActivity {
         type.setText(plant.getType());
         sunLight.setText(plant.getSunLight());
 
-        Log.e("TAG", plant.getName() );
+        Log.e("TAG", plant.getName());
 
         switch (plant.getName()) {
 
@@ -120,10 +125,42 @@ public class MyPlantActivity extends AppCompatActivity {
 
 
         }
+        String resultAge = calculateAge(plant.getBornDate());
+        age.setText(resultAge);
 
-        calculateAge(plant.getBornDate());
+
     }
 
-    private void calculateAge(Date bornDate) {
+
+    private String calculateAge(String bornDate) {
+
+        String myPlantAge = "0 days";
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+
+        String actualDate = formatter.format(calendar.getTime());
+
+        try {
+            Date d1 = formatter.parse(bornDate);
+            Date d2 = formatter.parse(actualDate);
+
+
+            long difference_Time = d2.getTime() - d1.getTime();
+            long difference_Days = TimeUnit.MILLISECONDS.toDays(difference_Time);
+            long difference_Mounths = difference_Days / 30;
+
+            if(difference_Days<30){
+                myPlantAge = difference_Days + " Days";
+            }else{
+                myPlantAge = difference_Mounths+" Months";
+            }
+
+        }catch (ParseException e){
+
+            e.printStackTrace();
+        }
+
+        return myPlantAge;
     }
 }
