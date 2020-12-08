@@ -155,7 +155,7 @@ public class MyPlantsAdapter extends BaseAdapter {
 
         String waterFreq = calculateWaterFreq(myPlantInfo.getBornTime(), myPlantInfo.getNextWatter());
         timerMyPlant.setText(waterFreq);
-
+        notifyDataSetChanged();
         String infoWater[] = waterFreq.split(" ");
         float time = Float.parseFloat(infoWater[0]);
 
@@ -163,11 +163,13 @@ public class MyPlantsAdapter extends BaseAdapter {
             statePlant.setText("Need water");
             statePlant.setTextColor(Color.WHITE);
             containerState.setBackground(ContextCompat.getDrawable(cardMyPlant.getContext(),R.drawable.containerstateplant));
+            notifyDataSetChanged();
 
         }else{
             statePlant.setText("Already water");
             statePlant.setTextColor(ContextCompat.getColor(cardMyPlant.getContext(),R.color.coral));
             containerState.setBackground(ContextCompat.getDrawable(cardMyPlant.getContext(),R.drawable.container_state_ready));
+            notifyDataSetChanged();
 
         }
 
@@ -189,7 +191,7 @@ public class MyPlantsAdapter extends BaseAdapter {
             Date tborn= formatterTim.parse(bornTime);
 
             String infoWater[] = nextWater.split(" ");
-            int nHours = Integer.parseInt(infoWater[0]);
+            long nHours = Long.parseLong(infoWater[0]);
 
 
 

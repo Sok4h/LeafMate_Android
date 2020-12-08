@@ -190,7 +190,7 @@ public class MyPlantActivity extends AppCompatActivity {
             Date tborn= formatterTim.parse(bornTime);
 
             String infoWater[] = nextWater.split(" ");
-            int nHours = Integer.parseInt(infoWater[0]);
+            long nHours = Long.parseLong(infoWater[0]);
 
 
 
