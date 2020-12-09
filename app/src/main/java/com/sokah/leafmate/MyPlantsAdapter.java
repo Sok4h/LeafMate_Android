@@ -1,7 +1,11 @@
 package com.sokah.leafmate;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.FirebaseDatabase;
@@ -68,6 +74,13 @@ public class MyPlantsAdapter extends BaseAdapter {
         ConstraintLayout containerState = cardMyPlant.findViewById(R.id.containerStatePlant);
 
         titleMyPlant.setText(myPlantInfo.getUserName());
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+
+            NotificationChannel channel = new NotificationChannel("Notification","Notification", NotificationManager.IMPORTANCE_HIGH);
+            NotificationManager manager= cardMyPlant.getContext().getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
 
         switch (myPlantInfo.getName()) {
 
@@ -165,6 +178,21 @@ public class MyPlantsAdapter extends BaseAdapter {
             statePlant.setTextColor(Color.WHITE);
             containerState.setBackground(ContextCompat.getDrawable(cardMyPlant.getContext(),R.drawable.containerstateplant));
             notifyDataSetChanged();
+
+            //notificacion
+
+            Intent resultIntent= new Intent(cardMyPlant.getContext(),MyPlantActivity.class);
+            resultIntent.putExtra("infoMyPlant",myPlantInfo.getId());
+            PendingIntent pendingIntent = PendingIntent.getActivity(cardMyPlant.getContext(),1,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(cardMyPlant.getContext(),"Notification");
+            builder.setContentTitle("Time to water your plant");
+            builder.setContentText("It´s time to water"+myPlantInfo.getName());
+            builder.setSmallIcon(R.drawable.common_google_signin_btn_icon_dark);
+            builder.setAutoCancel(true);
+            builder.setContentIntent(pendingIntent);
+            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(cardMyPlant.getContext());
+            managerCompat.notify(1,builder.build());
 
 
         }else{
