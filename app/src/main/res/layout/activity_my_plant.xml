@@ -101,7 +101,7 @@
                 android:id="@+id/waterFrequencyMyPlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
+                android:layout_marginStart="60dp"
                 android:fontFamily="@font/josefin_sans_bold"
                 android:text="35 Min"
                 android:textColor="@color/lightGreen"

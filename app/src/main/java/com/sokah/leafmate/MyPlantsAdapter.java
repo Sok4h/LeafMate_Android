@@ -4,6 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -128,27 +129,17 @@ public class MyPlantsAdapter extends BaseAdapter {
                 imgMyPlant.setImageResource(R.drawable.circlecabbage);
 
                 break;
-
-
             case "Carrot":
-
                 imgMyPlant.setImageResource(R.drawable.circlecarrot);
-
                 break;
             case "Cauliflower":
 
                 imgMyPlant.setImageResource(R.drawable.circlecauliflour);
-
                 break;
-
             case "Red Bell Pepper":
 
                 imgMyPlant.setImageResource(R.drawable.pimenton);
-
                 break;
-
-
-
         }
 
         cardMyPlant.setOnClickListener(
@@ -187,8 +178,10 @@ public class MyPlantsAdapter extends BaseAdapter {
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(cardMyPlant.getContext(),"Notification");
             builder.setContentTitle("Time to water your plant");
-            builder.setContentText("It´s time to water"+myPlantInfo.getName());
-            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setContentText("It´s time to water "+myPlantInfo.getUserName());
+            builder.setSmallIcon(R.mipmap.ic_launcher_round);
+            builder.setLargeIcon(BitmapFactory.decodeResource(cardMyPlant.getContext().getResources(),
+                    R.mipmap.ic_launcher_round));
             builder.setAutoCancel(true);
             builder.setContentIntent(pendingIntent);
             NotificationManagerCompat managerCompat = NotificationManagerCompat.from(cardMyPlant.getContext());
