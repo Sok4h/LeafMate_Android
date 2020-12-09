@@ -2,6 +2,7 @@ package com.sokah.leafmate;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -179,13 +180,21 @@ public class MyPlantsAdapter extends BaseAdapter {
             notifyDataSetChanged();
 
             //notificacion
+
+            Intent resultIntent= new Intent(cardMyPlant.getContext(),MyPlantActivity.class);
+            resultIntent.putExtra("infoMyPlant",myPlantInfo.getId());
+            PendingIntent pendingIntent = PendingIntent.getActivity(cardMyPlant.getContext(),1,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
             NotificationCompat.Builder builder = new NotificationCompat.Builder(cardMyPlant.getContext(),"Notification");
             builder.setContentTitle("Time to water your plant");
             builder.setContentText("It´s time to water"+myPlantInfo.getName());
             builder.setSmallIcon(R.drawable.common_google_signin_btn_icon_dark);
             builder.setAutoCancel(true);
+            builder.setContentIntent(pendingIntent);
             NotificationManagerCompat managerCompat = NotificationManagerCompat.from(cardMyPlant.getContext());
             managerCompat.notify(1,builder.build());
+
+
         }else{
             statePlant.setText("Already water");
             statePlant.setTextColor(ContextCompat.getColor(cardMyPlant.getContext(),R.color.coral));
