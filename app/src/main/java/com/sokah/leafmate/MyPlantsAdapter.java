@@ -188,7 +188,7 @@ public class MyPlantsAdapter extends BaseAdapter {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(cardMyPlant.getContext(),"Notification");
             builder.setContentTitle("Time to water your plant");
             builder.setContentText("It´s time to water"+myPlantInfo.getName());
-            builder.setSmallIcon(R.drawable.common_google_signin_btn_icon_dark);
+            builder.setSmallIcon(R.mipmap.ic_launcher);
             builder.setAutoCancel(true);
             builder.setContentIntent(pendingIntent);
             NotificationManagerCompat managerCompat = NotificationManagerCompat.from(cardMyPlant.getContext());
